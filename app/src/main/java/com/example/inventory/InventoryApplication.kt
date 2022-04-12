@@ -16,5 +16,12 @@
 package com.example.inventory
 
 import android.app.Application
+import com.example.inventory.data.ItemDatabase
 
-class InventoryApplication : Application()
+class InventoryApplication : Application() {
+
+    val database: ItemDatabase by lazy {
+        ItemDatabase.getDatabase(this)
+    }
+
+}
