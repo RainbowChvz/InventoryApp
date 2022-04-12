@@ -10,6 +10,10 @@ class InventoryViewModel(private val itemDao: ItemDao) : ViewModel() {
 
     val allItems: LiveData<List<Item>> = itemDao.getItemsAll().asLiveData()
 
+    fun retrieveItem(id: Int): LiveData<Item> {
+        return itemDao.getItemById(id).asLiveData()
+    }
+
     private fun insertItem(i: Item) {
         viewModelScope.launch {
             itemDao.insertItem(i)

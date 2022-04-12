@@ -61,7 +61,8 @@ class ItemListFragment : Fragment() {
         }
 
         val adapter = ItemListAdapter {
-
+            val action = ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(it.id)
+            findNavController().navigate(action)
         }
         binding.recyclerView.adapter = adapter
 
